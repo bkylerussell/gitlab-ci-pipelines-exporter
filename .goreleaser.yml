@@ -88,15 +88,6 @@ scoops:
       owner: mvisonneau
       name: scoops
 
-snapcrafts:
-  - summary: *description
-    description: Monitor GitLab CI pipelines related metrics.
-    license: *license
-    grade: stable
-    apps:
-      gitlab-ci-pipelines-exporter:
-        plugs: [home, network, network-bind]
-
 dockers:
   - image_templates:
       - 'docker.io/mvisonneau/gitlab-ci-pipelines-exporter:{{ .Tag }}-amd64'

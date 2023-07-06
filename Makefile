@@ -35,7 +35,6 @@ build: ## Build the binaries using local GOOS
 release: ## Build & release the binaries (stable)
 	git tag -d edge
 	goreleaser release --clean
-	find dist -type f -name "*.snap" -exec snapcraft upload --release stable,edge '{}' \;
 
 .PHONY: protoc
 protoc: ## Generate golang from .proto files
