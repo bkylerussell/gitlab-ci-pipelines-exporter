@@ -126,7 +126,7 @@ signs:
     args:
       [
         '-u',
-        'C09CA9F71C5C988E65E3E5FCADEA38EDC46F25BE',
+        '8522C0A474F52D1932C38844F9B75E419BE609E1',
         '--output',
         '${signature}',
         '--detach-sign',
