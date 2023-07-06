@@ -40,7 +40,6 @@ release: ## Build & release the binaries (stable)
 	mkdir -p ${HOME}/.cache/snapcraft/stage-packages
 	git tag -d edge || true
 	$(GORELEASER) release --clean
-	find dist -type f -name "*.snap" -exec snapcraft upload --release stable,edge '{}' \;
 
 .PHONY: protoc
 protoc: ## Generate golang from .proto files
