@@ -64,27 +64,6 @@ nfpms:
         file_info:
           mode: 0644
 
-homebrew_casks:
-  - description: *description
-    homepage: *homepage
-    license: *license
-    directory: Formula
-    repository:
-      owner: mvisonneau
-      name: homebrew-tap
-    completions:
-      bash: helpers/autocomplete/bash
-      zsh: helpers/autocomplete/zsh
-      fish: helpers/autocomplete/fish
-
-scoops:
-  - description: *description
-    homepage: *homepage
-    license: *license
-    repository:
-      owner: mvisonneau
-      name: scoops
-
 snapcrafts:
   - summary: *description
     description: Monitor GitLab CI pipelines related metrics.
@@ -96,9 +75,9 @@ snapcrafts:
 
 dockers_v2:
   - images:
-      - docker.io/mvisonneau/gitlab-ci-pipelines-exporter
-      - ghcr.io/mvisonneau/gitlab-ci-pipelines-exporter
-      - quay.io/mvisonneau/gitlab-ci-pipelines-exporter
+      - docker.io/{{ .Env.CONTAINER_NAMESPACE }}/gitlab-ci-pipelines-exporter
+      - ghcr.io/{{ .Env.CONTAINER_NAMESPACE }}/gitlab-ci-pipelines-exporter
+      - quay.io/{{ .Env.CONTAINER_NAMESPACE }}/gitlab-ci-pipelines-exporter
     tags:
       - "{{ .Tag }}"
     dockerfile: Dockerfile
@@ -110,8 +89,8 @@ dockers_v2:
     labels:
       org.opencontainers.image.title: "{{ .ProjectName }}"
       org.opencontainers.image.description: "{{ .ProjectName }}"
-      org.opencontainers.image.url: "https://github.com/mvisonneau/gitlab-ci-pipelines-exporter"
-      org.opencontainers.image.source: "https://github.com/mvisonneau/gitlab-ci-pipelines-exporter"
+      org.opencontainers.image.url: "https://github.com/{{ .Env.CONTAINER_NAMESPACE }}/gitlab-ci-pipelines-exporter"
+      org.opencontainers.image.source: "https://github.com/{{ .Env.CONTAINER_NAMESPACE }}/gitlab-ci-pipelines-exporter"
       org.opencontainers.image.version: "{{ .Version }}"
       org.opencontainers.image.created: "{{ .Date }}"
       org.opencontainers.image.revision: "{{ .FullCommit }}"
