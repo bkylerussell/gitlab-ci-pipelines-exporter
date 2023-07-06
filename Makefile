@@ -33,7 +33,7 @@ build: ## Build the binaries using local GOOS
 
 .PHONY: release
 release: ## Build & release the binaries (stable)
-	git tag -d edge
+	git tag -d edge || true
 	goreleaser release --clean
 
 .PHONY: protoc
