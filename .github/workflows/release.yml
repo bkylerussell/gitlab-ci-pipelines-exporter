@@ -62,3 +62,4 @@ jobs:
         run: make ${{ github.ref == 'refs/heads/main' && 'pre' || '' }}release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          CONTAINER_NAMESPACE: ${{ github.repository_owner }}
