@@ -367,6 +367,7 @@ func (c *Controller) addWebhooks(ctx context.Context) error {
 		projects, err := c.Gitlab.ListProjects(ctx, w)
 		if err != nil {
 			log.WithContext(ctx).WithError(err)
+
 			return err
 		}
 
@@ -381,6 +382,7 @@ func (c *Controller) addWebhooks(ctx context.Context) error {
 			hooks, err := c.Gitlab.GetProjectHooks(ctx, p.Name)
 			if err != nil {
 				log.WithContext(ctx).WithError(err)
+
 				return err
 			}
 
@@ -401,6 +403,7 @@ func (c *Controller) addWebhooks(ctx context.Context) error {
 				_, err := c.Gitlab.AddProjectHook(ctx, p.Name, &opts)
 				if err != nil {
 					log.WithContext(ctx).WithError(err)
+
 					return err
 				}
 
@@ -427,6 +430,7 @@ func (c *Controller) addWebhooks(ctx context.Context) error {
 					_, err := c.Gitlab.AddProjectHook(ctx, p.Name, &opts)
 					if err != nil {
 						log.WithContext(ctx).WithError(err)
+
 						return err
 					}
 
@@ -444,6 +448,7 @@ func (c *Controller) RemoveWebhooks(ctx context.Context) error {
 		projects, err := c.Gitlab.ListProjects(ctx, w)
 		if err != nil {
 			log.WithContext(ctx).WithError(err)
+
 			return err
 		}
 
@@ -458,6 +463,7 @@ func (c *Controller) RemoveWebhooks(ctx context.Context) error {
 			hooks, err := c.Gitlab.GetProjectHooks(ctx, p.Name)
 			if err != nil {
 				log.WithContext(ctx).WithError(err)
+
 				return err
 			}
 
@@ -468,6 +474,7 @@ func (c *Controller) RemoveWebhooks(ctx context.Context) error {
 					err := c.Gitlab.RemoveProjectHook(ctx, p.Name, h.ID)
 					if err != nil {
 						log.WithContext(ctx).WithError(err)
+
 						return err
 					}
 
