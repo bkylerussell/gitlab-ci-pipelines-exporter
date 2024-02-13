@@ -16,7 +16,7 @@ type Limiter interface {
 func Take(ctx context.Context, l Limiter) {
 	throttled := l.Take(ctx)
 
-	if throttled.Milliseconds() > 10 {
+	if throttled.Milliseconds() < -10 {
 		log.WithFields(
 			log.Fields{
 				"for": throttled.String(),
